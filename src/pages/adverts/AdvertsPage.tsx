@@ -18,10 +18,12 @@ function AdvertsPage() {
   }, []);
   return (
     <div className="container mx-auto px-4">
+      <header className="flex items-center justify-between">
       <h1 className="my-4 text-2xl font-bold text-green-600">
         NODEPOP ANUNCIOS
       </h1>
-
+      <Button>Logout</Button>
+      </header>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {adverts.map((advert) => (
           <li key={advert.id} className={styles.advertCard}>

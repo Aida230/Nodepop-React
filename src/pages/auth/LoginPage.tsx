@@ -1,5 +1,6 @@
 import styles from "./LoginPage.module.css";
 import Button from "../../components/Button";
+import { useState } from "react"
 import { login } from "./service";
 
 
@@ -9,13 +10,17 @@ interface Props {
 
 
 function LoginPage({ onLogin }: Props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     try {
       const response = await login({
-        username: event.target.username.value,
-        password: event.target.password.value,
+        //username: event.target.username.value,
+        //password: event.target.password.value,
+        username: username,
+        password: password,
       });
       console.log(response);
       onLogin();
@@ -24,6 +29,16 @@ function LoginPage({ onLogin }: Props) {
     }
   };
 
+  const handlerUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value)
+  };
+
+  const handlerPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value)
+  };
+
+  const isDisabled = !username || !password
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
@@ -31,14 +46,23 @@ function LoginPage({ onLogin }: Props) {
         <form onSubmit={handleSubmit}>
           <label>
             Username:
-            <input type="text" name="username" />
+            <input 
+              type="text"
+              name="username"  
+              value={username}
+              onChange={handlerUserChange} 
+            />
           </label>
           <label>
             Password:
-            <input type="password" name="password" />
+            <input 
+              type="password" 
+              name="password"
+              value={password}
+              onChange={handlerPasswordChange} />
           </label>
           <div className={styles.buttonContainer}>
-            <Button type="submit">Login</Button>
+            <Button type="submit" disabled={isDisabled}>Login</Button>
           </div>
         </form>
       </div>
