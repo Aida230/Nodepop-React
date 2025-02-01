@@ -2,43 +2,46 @@
 import styles from './AdvertsPage.module.css'
 //import clsx from 'clsx';
 import Button from "../../components/Button.ts"
+import { getLastestAdverts } from './service.ts';
+import { useEffect, useState } from 'react'
+import { Advert } from './types.ts'
+
+
 
 //vamos a crear un componente, que es una funcion con un nombre que se pueda reutilazar
-const adverts = [
-  {
-    content:
-    "Aida",
-    userId: 1,
-    id: 1,
-  },
-  {
-    content:
-    "Rober",
-    userId: 1,
-    id: 2,
-  },
-];
-
-//pruebas de estilos de css
-
-//const blue = true
-
-
 
 function AdvertsPage() {
-  return (
-    //<div className={clsx("AdvertsPage", { blue })}>
-    <div className={styles.AdvertsPage}>
-      <h1 className="text-green-600">Adverts Page</h1>
-      <ul style={{ color: "red" }}>
-        {adverts.map((advert) => (
-          <li key={advert.id}>{advert.content}</li>
-        ))} 
-      </ul>
-      <Button onClick={() => {console.log("Cliked")}}>Click me!</Button>
-    </div>
-  )
+  const [adverts, setAdverts] = useState<Advert[]>([]);
 
+  useEffect(() => {
+    getLastestAdverts().then((response) => {
+      setAdverts(response)
+  },)
+  }, []);
+  return (
+    <div className="container mx-auto px-4">
+      <h1 className="text-green-600 text-2xl font-bold my-4">NODEPOP ANUNCIOS</h1>
+      
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {adverts.map((advert) => (
+          <li 
+            key={advert.id} 
+            className={styles.advertCard}
+          >
+            <img 
+              //src={advert.image} 
+              //alt={advert.title} 
+              className={styles.advertImage}
+            />
+            <p className="text-gray-600">{advert.content}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="flex justify-center mt-6">
+      <Button onClick={() => console.log("Clicked")}>Ver más anuncios</Button>
+      </div>
+    </div>
+  );
 }
 
 export default AdvertsPage
