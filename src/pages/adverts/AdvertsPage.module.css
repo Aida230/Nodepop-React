@@ -1,11 +1,3 @@
-.AdvertsPage {
-  color: blueviolet;
-}
-
-.blue {
-  color: blue
-}
-
 .advertCard {
   background: rgba(77, 122, 96, 0.274);
   border-radius: 12px;
@@ -24,4 +16,3 @@
   object-fit: cover;
   border-radius: 10px;
 }
-

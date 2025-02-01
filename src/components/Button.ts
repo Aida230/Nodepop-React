@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // Colores inspirados en Wallapop
 const primaryColor = "#2DBE60"; // Verde Wallapop
-const hoverColor = "#27A956";  // Verde más oscuro para hover
+const hoverColor = "#27A956"; // Verde más oscuro para hover
 
 const Button = styled.button`
   background-color: ${primaryColor};
@@ -15,7 +15,9 @@ const Button = styled.button`
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
 
   &:hover {
     background-color: ${hoverColor};

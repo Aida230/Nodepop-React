@@ -3,6 +3,8 @@ export interface Advert {
   userId: number;
   content: string;
   updatedAt: string;
+}
 
-
+export interface AdvertContent {
+  content: string;
 }
