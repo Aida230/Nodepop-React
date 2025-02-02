@@ -2,8 +2,13 @@ import { useState } from "react"
 import AdvertsPage from "./pages/adverts/AdvertsPage";
 import LoginPage from "./pages/auth/LoginPage";
 
-function App() {
-  const [isLogged, setIsLogged] = useState(false);
+interface Props {
+  defaultIsLogged: boolean;
+
+}
+
+function App({defaultIsLogged}: Props) {
+  const [isLogged, setIsLogged] = useState(defaultIsLogged);
 
   const handleLogin = () => {
     setIsLogged(true)
@@ -14,7 +19,11 @@ function App() {
   }
 
 
-  return isLogged ? <AdvertsPage onLogout={hadleLogout} /> : <LoginPage onLogin={handleLogin}/>
+  return isLogged ? (
+    <AdvertsPage onLogout={hadleLogout} />
+  ) : (
+    <LoginPage onLogin={handleLogin}/>
+  );
 }
 
 export default App;

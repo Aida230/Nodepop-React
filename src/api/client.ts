@@ -10,3 +10,9 @@ export const client = axios.create({
 export const setAuthorizationHeader = (accessToken: string) => {
   client.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
 };
+
+//esta funcion es para una vez que estamos deslogados nos borre el token
+export const removeAuthorizationHeader = () => 
+{
+  delete client.defaults.headers["Authorizate"];
+}
