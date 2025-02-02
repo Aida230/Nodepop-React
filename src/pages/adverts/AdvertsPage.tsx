@@ -6,9 +6,11 @@ import { getLastestAdverts } from "./service.ts";
 import { useEffect, useState } from "react";
 import { Advert } from "./types.ts";
 
-//vamos a crear un componente, que es una funcion con un nombre que se pueda reutilazar
+interface Props {
+  onLogout: () => void;
+}
 
-function AdvertsPage() {
+function AdvertsPage({ onLogout }: Props) {
   const [adverts, setAdverts] = useState<Advert[]>([]);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ function AdvertsPage() {
       <h1 className="my-4 text-2xl font-bold text-green-600">
         NODEPOP ANUNCIOS
       </h1>
-      <Button>Logout</Button>
+      <Button onClick={onLogout}>Logout</Button>
       </header>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {adverts.map((advert) => (
