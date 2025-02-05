@@ -1,7 +1,7 @@
 import { client } from "../../api/client";
 import { Advert, AdvertContent } from "./types";
 
-const advertsUrl = "/api/adverts";
+const advertsUrl = "/api/v1/adverts";  //añadido v1
 
 export const getLastestAdverts = async () => {
   const response = await client.get<Advert[]>(advertsUrl);

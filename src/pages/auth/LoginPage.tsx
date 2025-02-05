@@ -10,7 +10,7 @@ interface Props {
 
 
 function LoginPage({ onLogin }: Props) {
-  const [username, setUsername] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,7 +19,7 @@ function LoginPage({ onLogin }: Props) {
       const response = await login({
         //username: event.target.username.value,
         //password: event.target.password.value,
-        username: username,
+        email: email,
         password: password,
       });
       console.log(response);
@@ -37,7 +37,7 @@ function LoginPage({ onLogin }: Props) {
     setPassword(event.target.value)
   };
 
-  const isDisabled = !username || !password
+  const isDisabled = !email || !password
 
   return (
     <div className={styles.loginContainer}>
@@ -45,11 +45,11 @@ function LoginPage({ onLogin }: Props) {
         <h1 className={styles.title}>Log in to Nodepop</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            Username:
+            Email:
             <input 
               type="text"
-              name="username"  
-              value={username}
+              name="email"  
+              value={email}
               onChange={handlerUserChange} 
             />
           </label>
