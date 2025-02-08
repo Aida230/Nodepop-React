@@ -1,7 +1,7 @@
-import { createContext, type ReactNode, useContext, useState } from 'react'
+import { createContext, type ReactNode, useContext, useState } from "react";
 
 interface AuthContextValue {
-  isLogged: boolean,
+  isLogged: boolean;
   onLogin: () => void;
   onLogout: () => void;
 }
@@ -38,7 +38,6 @@ export function AuthProvider({ defaultIsLogged, children }: Props) {
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );
 }
-
 
 //custome hook es una funcion normal que puede llamar a otros hooks
 

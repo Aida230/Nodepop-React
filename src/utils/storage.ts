@@ -16,7 +16,7 @@ const storage = {
   },
 
   remove(key: StorageKey) {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   },
 
   clear() {
@@ -24,4 +24,4 @@ const storage = {
   },
 };
 
-export default storage
+export default storage;

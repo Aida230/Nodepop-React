@@ -12,7 +12,6 @@ export const setAuthorizationHeader = (accessToken: string) => {
 };
 
 //esta funcion es para una vez que estamos deslogados nos borre el token
-export const removeAuthorizationHeader = () => 
-{
+export const removeAuthorizationHeader = () => {
   delete client.defaults.headers["Authorizate"];
-}
+};

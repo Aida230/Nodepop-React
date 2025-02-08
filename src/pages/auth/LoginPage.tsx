@@ -1,10 +1,8 @@
 import styles from "./LoginPage.module.css";
 import Button from "../../components/Button";
-import { useState } from "react"
+import { useState } from "react";
 import { login } from "./service";
 import { useAuth } from "./context";
-
-
 
 function LoginPage() {
   const [email, setUsername] = useState("");
@@ -28,14 +26,16 @@ function LoginPage() {
   };
 
   const handlerUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(event.target.value)
+    setUsername(event.target.value);
   };
 
-  const handlerPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value)
+  const handlerPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPassword(event.target.value);
   };
 
-  const isDisabled = !email || !password
+  const isDisabled = !email || !password;
 
   return (
     <div className={styles.loginContainer}>
@@ -44,23 +44,26 @@ function LoginPage() {
         <form onSubmit={handleSubmit}>
           <label>
             Email:
-            <input 
+            <input
               type="text"
-              name="email"  
+              name="email"
               value={email}
-              onChange={handlerUserChange} 
+              onChange={handlerUserChange}
             />
           </label>
           <label>
             Password:
-            <input 
-              type="password" 
+            <input
+              type="password"
               name="password"
               value={password}
-              onChange={handlerPasswordChange} />
+              onChange={handlerPasswordChange}
+            />
           </label>
           <div className={styles.buttonContainer}>
-            <Button type="submit" disabled={isDisabled}>Login</Button>
+            <Button type="submit" disabled={isDisabled}>
+              Login
+            </Button>
           </div>
         </form>
       </div>

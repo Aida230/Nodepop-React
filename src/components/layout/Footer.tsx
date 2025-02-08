@@ -1,3 +1,8 @@
 export default function Footer() {
-  return <footer className="h-16 px-4 flex items-center justify-center border-t border-blue-300 bg-white fixed bottom-0 w-full">@2025 AidaBlueDev</footer>;
+  return (
+    <footer className="fixed bottom-0 flex h-16 w-full items-center justify-center border-t border-blue-300 bg-white px-4">
+      <img src="/image/150.png" alt="logo" className="mr-2 h-8" />
+      <span>@2025 AidaBlueDev</span>
+    </footer>
+  );
 }
