@@ -1,14 +1,12 @@
-type StorageKey = "auth";
+type StorageKey = "auth" | "email" | "password";
 
 const storage = {
   get(key: StorageKey) {
     const value = localStorage.getItem(key);
-
     if (!value) {
       return null;
     }
-    return value;
-    //esto seria para devolver objetosJSON.parse(value);
+    return JSON.parse(value); // Aseguramos que devolvemos el valor parseado si es un objeto
   },
 
   set(key: StorageKey, value: string) {

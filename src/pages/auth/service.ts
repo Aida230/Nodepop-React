@@ -11,13 +11,14 @@ export const login = async (credentials: Credentials) => {
   const { accessToken } = response.data;
   storage.set("auth", accessToken);
   setAuthorizationHeader(accessToken);
-  //return response.data;
+  return response;
 };
 
 export const logout = async () => {
   storage.remove("auth");
   removeAuthorizationHeader();
 };
+
 
 //cuando lo conecte al api del profe tengo que cambiar el
 //                          ('/api/auth/login creo')

@@ -39,8 +39,7 @@ export function AuthProvider({ defaultIsLogged, children }: Props) {
   );
 }
 
-//custome hook es una funcion normal que puede llamar a otros hooks
-
+// Custome hook
 export function useAuth() {
   const authValue = useContext(AuthContext);
   return authValue;
