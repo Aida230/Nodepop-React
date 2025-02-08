@@ -2,16 +2,14 @@ import styles from "./LoginPage.module.css";
 import Button from "../../components/Button";
 import { useState } from "react"
 import { login } from "./service";
+import { useAuth } from "./context";
 
 
-interface Props {
-  onLogin: () => void;
-}
 
-
-function LoginPage({ onLogin }: Props) {
+function LoginPage() {
   const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { onLogin } = useAuth();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

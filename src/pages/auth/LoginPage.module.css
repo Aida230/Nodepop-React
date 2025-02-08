@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #1cac1c41;
 }
 
 /* Caja del formulario */
@@ -38,7 +38,7 @@ input {
   width: 100%;
   padding: 12px;
   margin-top: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #318310;
   border-radius: 8px;
   font-size: 16px;
   outline: none;
