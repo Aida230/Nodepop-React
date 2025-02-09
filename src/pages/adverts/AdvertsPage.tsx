@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout.tsx";
 import Button from "../../components/Button.ts";
 import Advert from "./Advert.tsx";
+import { Link } from "react-router-dom";
 
 const EmptyList = () => {
   return (
     <div className="advertsPage-empty">
       <p>Be the first one!</p>
-      <Button>Create advert</Button>
+      <Link to="new">
+        <Button>Create advert</Button>
+      </Link>
     </div>
   );
 };
@@ -30,7 +33,9 @@ function AdvertsPage() {
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {adverts.map((advert) => (
               <li key={advert.id} className={styles.advertCard}>
-                <Advert advert={advert}></Advert>
+                <Link to={`/adverts/${advert.id}`}>
+                  <Advert advert={advert}></Advert>
+                </Link>
               </li>
             ))}
           </ul>
