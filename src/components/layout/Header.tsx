@@ -15,6 +15,7 @@ export default function Header() {
         <img src="/image/150.png" alt="logo" className="mr-2 h-8" />
       </Link>
       <h1>NODEPOP ANUNCIOS</h1>
+      <Link to="/adverts/new">New Advert</Link>
       <nav>
         <Button onClick={handleLogoutClick} as={Link} to="/login">Logout</Button>
       </nav>
