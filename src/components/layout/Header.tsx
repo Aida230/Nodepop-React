@@ -16,6 +16,7 @@ export default function Header() {
       </Link>
       <h1>NODEPOP ANUNCIOS</h1>
       <Link to="/adverts/new">New Advert</Link>
+      <Link to="/adverts">Advert</Link>
       <nav>
         <Button onClick={handleLogoutClick} as={Link} to="/login">Logout</Button>
       </nav>

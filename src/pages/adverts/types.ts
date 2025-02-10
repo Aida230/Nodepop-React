@@ -8,5 +8,9 @@ export interface Advert {
 }
 
 export interface AdvertContent {
-  content: string;
+  name: string;
+  price: number;
+  sale: boolean;
+  tags: string[];
+  photo?: File | null; // Asegurar que puede ser un archivo o null
 }
