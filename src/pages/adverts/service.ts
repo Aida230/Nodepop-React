@@ -14,7 +14,7 @@ export const getLastestAdverts = async () => {
 //};
 
 // aun no lo estamos utilizando
-export const crateAdvert = async (advert: AdvertContent) => {
+export const createAdvert = async (advert: AdvertContent) => {
   const response = await client.post<Advert>(advertsUrl, advert);
   return response.data;
 };

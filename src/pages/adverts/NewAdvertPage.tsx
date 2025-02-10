@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import Button from "../../components/Button";
 import NewAdvertForm from "../../components/NewAdvertForm";
 import { useNewAdvertForm } from "./useNewAdvertForm";
+import Layout from "../../components/layout/Layout";
 
 const NewAdvertPage = () => {
   const {
@@ -21,6 +22,7 @@ const NewAdvertPage = () => {
   } = useNewAdvertForm();
 
   return (
+    <Layout>
     <div className="max-w-md mx-auto p-4">
       {/* Navegación entre páginas */}
       <nav className="mb-4 flex gap-4">
@@ -48,13 +50,14 @@ const NewAdvertPage = () => {
         setPhoto={setPhoto}
         error={error}
         handleSubmit={handleSubmit}
-      />
+        />
 
       {/* Botón para cerrar sesión */}
       <Button onClick={handleLogout} className="mt-4 w-full p-2 rounded">
         Logout
       </Button>
     </div>
+  </Layout>
   );
 };
 

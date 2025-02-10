@@ -4,6 +4,7 @@ import { Navigate, Routes, Route } from "react-router-dom";
 import NewAdvertPage from "./pages/adverts/NewAdvertPage";
 import PrivateRoute from "./components/PrivateRoute";  // Importamos el PrivateRoute
 
+
 function App() {
   return (
     <Routes>

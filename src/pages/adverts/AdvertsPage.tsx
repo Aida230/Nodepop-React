@@ -27,7 +27,7 @@ function AdvertsPage() {
   }, []);
 
   return (
-    <Layout title="">
+    <Layout>
       <div className="advertsPage">
         {adverts.length ? (
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
