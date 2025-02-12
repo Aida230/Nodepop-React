@@ -89,6 +89,7 @@ const CreateAdvert: React.FC = () => {
           <label className="block text-sm font-medium">Nombre:</label>
           <input
             type="text"
+            required
             name="name"
             value={advert.name}
             onChange={handleChange}
@@ -102,6 +103,7 @@ const CreateAdvert: React.FC = () => {
           <label className="block text-sm font-medium">Precio:</label>
           <input
             type="number"
+            required
             name="price"
             value={advert.price}
             onChange={handleChange}
@@ -115,6 +117,7 @@ const CreateAdvert: React.FC = () => {
           <label className="block text-sm font-medium">Compra / Venta:</label>
           <select
             name="sale"
+            required
             value={advert.sale ? "true" : "false"}
             onChange={handleChange}
             className="w-full border rounded-md p-1.5 mt-1 text-sm"
@@ -132,6 +135,7 @@ const CreateAdvert: React.FC = () => {
               <label key={tag} className="flex items-center space-x-1 text-xs">
                 <input
                   type="checkbox"
+                  required
                   checked={advert.tags.includes(tag)}
                   onChange={() => handleTagChange(tag)}
                   className="w-3 h-3"
