@@ -3,6 +3,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import { Navigate, Routes, Route } from "react-router-dom";
 import NewAdvertPage from "./pages/adverts/NewAdvertPage";
 import PrivateRoute from "./components/PrivateRoute";  // Importamos el PrivateRoute
+import AdvertPageDetail from "./pages/adverts/AdvertPageDetail";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/adverts" element={<PrivateRoute />}>
         <Route index element={<AdvertsPage />} />
         <Route path="new" element={<NewAdvertPage />} />
+        <Route path="/adverts/:id" element={<AdvertPageDetail />} />
       </Route>
 
       {/* Redirección predeterminada */}
