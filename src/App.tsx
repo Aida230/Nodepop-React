@@ -4,6 +4,7 @@ import { Navigate, Routes, Route } from "react-router-dom";
 import NewAdvertPage from "./pages/adverts/NewAdvertPage";
 import PrivateRoute from "./components/PrivateRoute";  // Importamos el PrivateRoute
 import AdvertPageDetail from "./pages/adverts/AdvertPageDetail";
+import Error404 from "./components/Error";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Route path="/" element={<Navigate to="/adverts" />} />
 
       {/* Ruta 404 */}
-      <Route path="/404" element={<div>404 | NOT FOUND</div>} />
+      <Route path="/404" element={<Error404 />} />
       <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
   );
