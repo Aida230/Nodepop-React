@@ -45,7 +45,7 @@ export function useLoginForm() {
         //si no las eliminamos
         storage.remove("email");
         storage.remove("password");
-        storage.remove("auth"); //aqui para eliminar el token
+        //storage.remove("auth"); //aqui para eliminar el token
       }
 
       console.log(response);

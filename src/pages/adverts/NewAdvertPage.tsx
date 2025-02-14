@@ -135,7 +135,6 @@ const CreateAdvert: React.FC = () => {
               <label key={tag} className="flex items-center space-x-1 text-xs">
                 <input
                   type="checkbox"
-                  required
                   checked={advert.tags.includes(tag)}
                   onChange={() => handleTagChange(tag)}
                   className="w-3 h-3"
