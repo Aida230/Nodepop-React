@@ -45,33 +45,40 @@ const AdvertPageDetail: React.FC = () => {
 
   // Si está cargando, mostramos un mensaje de carga
   if (loading) return <p className="text-center">Cargando...</p>;
-  
+
   // Si hay error, mostramos el mensaje de error
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <Layout>
-      <div className="max-w-md mx-auto mt-6 mb-6 p-4 bg-white shadow rounded-lg">
-        <h2 className="text-xl font-bold mb-3 text-center">{advert.name}</h2>
+      <div className="mx-auto mt-6 mb-6 max-w-md rounded-lg bg-white p-4 shadow">
+        <h2 className="mb-3 text-center text-xl font-bold">{advert.name}</h2>
 
         {/* Imagen del anuncio o placeholder */}
-        <div className="flex justify-center mb-4">
+        <div className="mb-4 flex justify-center">
           <img
             src={advert.photo || "/placeholder.jpg"}
             alt={advert.name}
-            className="w-64 h-64 object-cover rounded-lg shadow-md"
+            className="h-64 w-64 rounded-lg object-cover shadow-md"
           />
         </div>
 
         {/* Detalles del anuncio */}
         <div className="text-center">
-          <p className="text-lg font-semibold text-gray-700">💰 {advert.price} €</p>
-          <p className="text-sm text-gray-500">{advert.sale ? "En venta" : "Se compra"}</p>
+          <p className="text-lg font-semibold text-gray-700">
+            💰 {advert.price} €
+          </p>
+          <p className="text-sm text-gray-500">
+            {advert.sale ? "En venta" : "Se compra"}
+          </p>
 
           {/* Tags */}
-          <div className="flex justify-center mt-2 gap-2">
+          <div className="mt-2 flex justify-center gap-2">
             {advert.tags.map((tag: string) => (
-              <span key={tag} className="px-3 py-1 text-xs bg-gray-200 rounded-full">
+              <span
+                key={tag}
+                className="rounded-full bg-gray-200 px-3 py-1 text-xs"
+              >
                 {tag}
               </span>
             ))}
@@ -79,10 +86,10 @@ const AdvertPageDetail: React.FC = () => {
         </div>
 
         {/* Botón de eliminar */}
-        <div className="flex justify-center mt-6">
+        <div className="mt-6 flex justify-center">
           <button
             onClick={() => setShowConfirm(true)}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+            className="rounded-md bg-red-500 px-4 py-2 text-white hover:bg-red-600"
           >
             Eliminar anuncio
           </button>
@@ -91,19 +98,21 @@ const AdvertPageDetail: React.FC = () => {
 
       {/* Modal de confirmación */}
       {showConfirm && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-md shadow-lg text-center">
-            <p className="text-lg font-semibold">¿Estás seguro de que quieres eliminar este anuncio?</p>
+        <div className="bg-opacity-50 fixed inset-0 flex items-center justify-center bg-black">
+          <div className="rounded-md bg-white p-6 text-center shadow-lg">
+            <p className="text-lg font-semibold">
+              ¿Estás seguro de que quieres eliminar este anuncio?
+            </p>
             <div className="mt-4 flex justify-center gap-4">
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                className="rounded-md bg-red-500 px-4 py-2 text-white hover:bg-red-600"
               >
                 Sí, eliminar
               </button>
               <Button
                 onClick={() => setShowConfirm(false)}
-                className="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+                className="rounded-md bg-gray-300 px-4 py-2 hover:bg-gray-400"
               >
                 Cancelar
               </Button>

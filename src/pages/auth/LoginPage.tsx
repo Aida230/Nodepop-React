@@ -6,7 +6,16 @@ import { useLoginForm } from "./useLoginForm";
 
 function LoginPage() {
   //Usamos nuestro hook personalizado para manejar el estado del formulario
-  const { email, setEmail, password, setPassword, rememberMe, setRememberMe, handleSubmit, error } = useLoginForm();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    rememberMe,
+    setRememberMe,
+    handleSubmit,
+    error,
+  } = useLoginForm();
 
   return (
     <div className={styles.loginContainer}>

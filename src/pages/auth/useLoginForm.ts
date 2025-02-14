@@ -17,7 +17,6 @@ export function useLoginForm() {
   const { onLogin } = useAuth();
   const navigate = useNavigate(); //Este es el hook de react router para redirigir al usuario
 
-
   //Cuando se carga el componente, intentamos recuperar las credenciales guardadas en el almacenamiento
   useEffect(() => {
     const storedEmail = storage.get("email");
@@ -31,7 +30,7 @@ export function useLoginForm() {
 
   //Aqui manejamos el envio del formulario
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();  //evitamos que la pagina se recargue
+    event.preventDefault(); //evitamos que la pagina se recargue
 
     try {
       //enviamos los datos de login a la Api
@@ -49,7 +48,7 @@ export function useLoginForm() {
       }
 
       console.log(response);
-      onLogin();//Actualizams el estado global de autenticacion
+      onLogin(); //Actualizams el estado global de autenticacion
       navigate("/adverts"); //Redirigimos al usuario a la pagina de anuncios
     } catch (error) {
       console.error(error);

@@ -31,16 +31,34 @@ export default function Header() {
       <Link to="/adverts/new">New Advert</Link>
       <Link to="/adverts">Adverts</Link>
       <nav>
-        <Button onClick={handleLogoutClick}>Logout</Button> {/* Botón sin "as={Link}" */}
+        <Button onClick={handleLogoutClick}>Logout</Button>{" "}
+        {/* Botón sin "as={Link}" */}
       </nav>
 
       {showConfirmation && ( // Condición para mostrar el mensaje
-        <div className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center"> {/* Overlay oscuro */}
-          <div className="bg-white p-4 rounded"> {/* Contenedor del mensaje */}
+        <div className="fixed top-0 left-0 flex h-full w-full items-center justify-center bg-black/50">
+          {" "}
+          {/* Overlay oscuro */}
+          <div className="rounded bg-white p-4">
+            {" "}
+            {/* Contenedor del mensaje */}
             <p>¿Estás seguro de que quieres cerrar sesión?</p>
-            <div className="mt-2 flex justify-end"> {/* Botones alineados a la derecha */}
-              <button onClick={handleConfirmLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">Sí</button> {/* Estilos para los botones */}
-              <Button onClick={handleCancelLogout} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">No</Button>
+            <div className="mt-2 flex justify-end">
+              {" "}
+              {/* Botones alineados a la derecha */}
+              <button
+                onClick={handleConfirmLogout}
+                className="mr-2 rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
+              >
+                Sí
+              </button>{" "}
+              {/* Estilos para los botones */}
+              <Button
+                onClick={handleCancelLogout}
+                className="rounded bg-gray-500 px-4 py-2 font-bold text-white hover:bg-gray-700"
+              >
+                No
+              </Button>
             </div>
           </div>
         </div>

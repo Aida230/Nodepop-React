@@ -30,7 +30,7 @@ const LoginForm = ({
     <form onSubmit={handleSubmit} className={styles.form}>
       {/* Si hay un error, lo mostramos */}
       {error && <p className={styles.error}>{error}</p>}
-      
+
       <label>
         Email:
         <input

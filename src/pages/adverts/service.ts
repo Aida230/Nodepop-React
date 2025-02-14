@@ -3,13 +3,11 @@ import { Advert, AdvertContent } from "./types";
 
 const advertsUrl = "api/v1/adverts"; //añadido v1
 
-
 //Para obtener el listado de anuncios
 export const getLastestAdverts = async () => {
   const response = await client.get<Advert[]>(advertsUrl);
   return response.data;
 };
-
 
 //para crear los anuncios
 export const createAdvert = async (advert: AdvertContent) => {
@@ -19,18 +17,18 @@ export const createAdvert = async (advert: AdvertContent) => {
   formData.append("name", advert.name);
   formData.append("sale", String(advert.sale)); // Convierte a string si sale es booleano
   formData.append("price", String(advert.price)); // Convierte a string si price es número
-  formData.append("tags", JSON.stringify(advert.tags)); // Los tags deben enviarse como string
+  formData.append("tags", advert.tags.join(",")); // Convierte el array en una cadena separada por comas
 
   if (advert.photo instanceof File) {
     formData.append("photo", advert.photo);
   }
-    const response = await client.post(advertsUrl, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data", // Usamos multipart para enviar FormData
-      },
-    });
-    // Si la respuesta es exitosa, se retorna el anuncio creado
-    return response.data;
+  const response = await client.post(advertsUrl, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data", // Usamos multipart para enviar FormData
+    },
+  });
+  // Si la respuesta es exitosa, se retorna el anuncio creado
+  return response.data;
 };
 
 //Para obtener el detalle del anuncio
