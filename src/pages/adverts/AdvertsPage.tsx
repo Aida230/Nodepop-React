@@ -92,7 +92,7 @@ function AdvertsPage() {
     <Layout>
       <div className="advertsPage">
         {/* Formulario de filtros */}
-        <div className="mt-4 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white shadow-lg">
+        <div className="mt-4 rounded-md bg-gray-100 p-4 text-gray-800 shadow-sm">
           <h3 className="mb-4 text-2xl font-semibold">Filters</h3>
           <div className="mb-4 flex flex-wrap gap-4">
             {" "}
